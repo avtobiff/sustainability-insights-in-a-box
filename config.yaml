@@ -60,3 +60,17 @@ devices:
     collection:
       enabled: true
       interval: 10
+  dev:
+    site: local
+    family: netsim
+    os_type: confd
+    os_version: Unknown
+    connection: ssh
+    address: 172.17.0.1
+    port: 12022
+    username: admin
+    password: admin
+    timeout: 30
+    collection:
+      enabled: true
+      interval: 1
