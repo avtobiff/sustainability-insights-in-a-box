@@ -1,0 +1,4 @@
+Goal: Add or replace the ssh_collector with another collector
+Description:
+ Try hacking ncclient to support YANG-Push to be able to subscribe to a YANG
+ model with sustainability metrics on a simulated device.
