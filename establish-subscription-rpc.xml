@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+  </capabilities>
+</hello>
+]]>]]>
+<?xml version="1.0" encoding="UTF-8"?>
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+  <establish-subscription
+      xmlns="urn:ietf:params:xml:ns:yang:ietf-subscribed-notifications"
+      xmlns:yp="urn:ietf:params:xml:ns:yang:ietf-yang-push">
+    <yp:datastore
+        xmlns:ds="urn:ietf:params:xml:ns:yang:ietf-datastores">
+      ds:operational
+    </yp:datastore>
+    <yp:datastore-xpath-filter
+        xmlns:poweff="urn:ietf:params:xml:ns:yang:ietf-poweff-level-1">
+        /poweff:poweff/stats/device-current-total-power-draw
+    </yp:datastore-xpath-filter>
+    <yp:periodic>
+      <yp:period>500</yp:period>
+    </yp:periodic>
+  </establish-subscription>
+</rpc>
+]]>]]>

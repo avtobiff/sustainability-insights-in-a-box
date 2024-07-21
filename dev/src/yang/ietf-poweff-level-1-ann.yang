@@ -1,0 +1,16 @@
+module ietf-poweff-level-1-ann {
+    yang-version 1.1;
+    namespace "urn:dummy";
+    prefix dummy;
+
+    import ietf-poweff-level-1 {
+        prefix ietf-poweff-level-1;
+    }
+    import tailf-common {
+        prefix tailf;
+    }
+
+    tailf:annotate "/ietf-poweff-level-1:poweff" {
+        tailf:callpoint "dev";
+    }
+}
