@@ -65,7 +65,7 @@ services:
       - /bin/bash
       - -c
       - |
-        kafka-topics --bootstrap-server broker:9092 --if-not-exists --create --topic ssh_schedules --partitions 2 && \
+        kafka-topics --bootstrap-server broker:9092 --if-not-exists --create --topic yang-push_schedules --partitions 2 && \
         kafka-topics --bootstrap-server broker:9092 --if-not-exists --create --topic collections --partitions 2
         exit 0
     restart: on-failure:3
@@ -101,7 +101,7 @@ services:
   collector:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.ssh_collector
+      dockerfile: ./docker/Dockerfile.yang-push_collector
       args:
       - --no-cache
     hostname: collector
@@ -113,10 +113,10 @@ services:
         condition: service_completed_successfully
       database:
         condition: service_healthy
-    command: bash -c "sleep 10 && python ssh_collector.py"
+    command: bash -c "sleep 10 && python yang-push_collector.py"
     environment:
       BOOTSTRAP_SERVERS: broker:9092
-      SCHEDULES_TOPIC: ssh_schedules
+      SCHEDULES_TOPIC: yang-push_schedules
       COLLECTIONS_TOPIC: collections
     restart: unless-stopped
 
