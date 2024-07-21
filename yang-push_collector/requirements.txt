@@ -1,1 +1,3 @@
+confluent_kafka==2.2.0
+cryptography==42.0.4
 git+https://github.com/avtobiff/ncclient.git@yang-push-poweff
