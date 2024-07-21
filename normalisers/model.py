@@ -107,6 +107,7 @@ class Asset:
         # set defaults to avoid serialisation errors
         self._interfaces = []
         self._sensors = []
+        self._total_power_draw = 0
         self._pid = kwargs.get('pid', '')
         self._vid = kwargs.get('vid', '')
         self._hostname = kwargs.get('hostname', '')
@@ -134,6 +135,9 @@ class Asset:
         Adds a sensor to this asset
         """
         self._sensors.append(sensor)
+
+    def add_total_power_draw(self, total_power_draw):
+        self._total_power_draw = total_power_draw
 
     def serialise(self):
         """
@@ -178,6 +182,10 @@ class Asset:
         if len(sensors) > 0:
             poweff.setdefault('ietf-susi-power-environment:sensors',{})
             poweff['ietf-susi-power-environment:sensors']['sensors'] = sensors
+
+        leaf = "total-device-current-power-draw"
+        poweff["ietf-susi-power-environment:poweff"][leaf] = \
+                self._total_power_draw
 
         return poweff
 

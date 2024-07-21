@@ -65,13 +65,15 @@
               "type": "string",
               "enum": [
                 "ASR1k",
-                "Cat9300"
+                "Cat9300",
+                "netsim"
               ]
             },
             "os_type": {
               "type": "string",
               "enum": [
-                "iosxe"
+                "iosxe",
+                "confd"
               ]
             },
             "os_version": {

@@ -16,6 +16,7 @@
 
 from .asr1k_cli_normaliser import Asr1k_Cli_Normaliser
 from .cat9300_cli_normaliser import Cat9300_Cli_Normaliser
+from .dummy_normaliser import DummyNormaliser
 
 def get_normaliser(task_config):
 
@@ -36,6 +37,8 @@ def get_normaliser(task_config):
             return Asr1k_Cli_Normaliser(customer)
         elif family == 'Cat9300':
             return Cat9300_Cli_Normaliser(customer)
+        elif family == "netsim":
+            return DummyNormaliser(customer)
         else:
             None
     else:
